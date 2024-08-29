@@ -9,7 +9,8 @@ interface InputsProps extends InputHTMLAttributes<HTMLInputElement>{
 
 }
 
-export default function Input(props: InputProps) {
+
+const Input: React.FC<InputProps> = (props) => {
     const { type, name, value, min, max, id, placeholder, onKeyPress, onKeyDown } = props
     const inputs = {
         text: (p: InputsProps) => <input type="text" id={p.id} name={p.name} onKeyPress={p.onKeyPress} onKeyDown={p.onKeyDown} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={placeholder} required/>,
@@ -27,3 +28,5 @@ export default function Input(props: InputProps) {
         onKeyDown
     });
 }
+
+export default Input
