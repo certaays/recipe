@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getListCategory, getListArea } from "@/app/api/getdata";
 import Link from "next/link";
+import Text from "../../atoms/Text/page";
+
 
 interface LinkItemProps {
     link: LinkItem,
@@ -47,25 +49,29 @@ const NavItem = (props: LinkItemProps) => {
     }
 
     return (
-        <div key={link.name} className='relative'>
+        <div key={link.name} className='relative' onMouseEnter={handleOpenDropdown}
+        onMouseLeave={handleOpenDropdown}>
             <div
-                onClick={handleOpenDropdown}
                 className={clsx(
-                    ' flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+                    'flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
                     {
                         'text-blue-600': pathname === link.href,
                     },
 
                 )}>
-                <p className="hidden md:block">{link.name}</p>
+                <p className="hidden md:block">
+                    <Text variant="h6" className="font-semibold">{link.name}</Text>
+                </p>
             </div>
             { link.isDropdown && openDropdown && (
-                <div className='absolute flex flex-col gap-y-2 bg-white'>
+                <div className='absolute grid grid-cols-3 gap-y-2 w-[500px] z-50 -left-[20%] bg-white rounded-lg shadow-lg border border-slate-200'>
                     {data.map((area, index) => {
                         return (
-                            <div key={index} className="flex flex-row justify-center w-full hover:bg-blue-300 py-2 px-4">
-                                <Link href={`/category/${area[`str${link.id}`]}`}>{area[`str${link.id}`]}</Link>
+                            <Link key={index} href={`${link.href}/${area[`str${link.id}`]}`}>
+                            <div className="hover:bg-blue-300 py-2 px-4">
+                                {area[`str${link.id}`]}
                             </div>
+                            </Link>
                         )
             })}
                 </div>

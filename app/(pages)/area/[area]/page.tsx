@@ -1,10 +1,10 @@
 import React from 'react'
-import { getDetailCategories, getMealsbyId } from '@/app/api/getdata'
+import { getDetailArea, getMealsbyId } from '@/app/api/getdata'
 import Text from '@/app/components/atoms/Text/page'
 import Card from '@/app/components/molecules/Card/page'
 
-export default async function Page({ params }: { params: { category: string } }) {
-    const detailCategory = await getDetailCategories({category: params.category})
+export default async function Page({ params }: { params: { area: string } }) {
+    const detailCategory = await getDetailArea({area: params.area})
     
     return (
         <div className='m-20'>

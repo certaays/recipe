@@ -7,8 +7,6 @@ interface CardProps {
   title: string,
   subtitle: string,
   url_image: string,
-  width: number,
-  height: number
   url?: string
   description?: any
 }
@@ -16,13 +14,13 @@ interface CardProps {
 export default function Card(props: CardProps) {
   const {title, subtitle, url_image, url, description } = props
   const content = (
-    <div className='py-4'>
-    <div className='bg-white shadow-lg h-full rounded-lg'>
+    <div className='py-4 w-full'>
+    <div className='bg-white w-full shadow-lg h-full rounded-lg'>
         <div className='w-full aspect-square relative'>
           <Image 
             src={url_image}
             alt={title}
-            className='object-cover rounded-t-xl'
+            className='object-cover w-full rounded-t-xl'
             fill
           />
         </div>

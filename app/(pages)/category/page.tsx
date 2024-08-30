@@ -9,7 +9,7 @@ export default async function Category() {
         {categories.map((item:any)=>{
           return(
             <div key={item.idCategory} className="">  
-              <Card url={`/category/${item.strCategory}`} title={item.strCategory} subtitle="" url_image={item.strCategoryThumb} description={item.strCategoryDescription} width={1000} height={1000}></Card>
+              <Card url={`/category/${item.strCategory}`} title={item.strCategory} subtitle="" url_image={item.strCategoryThumb} description={item.strCategoryDescription}></Card>
             </div>
           )
         })}

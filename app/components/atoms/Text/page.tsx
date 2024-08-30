@@ -19,8 +19,8 @@ export default function Text(props: TypographyProps) {
         h4: (p: TextProps) => <h4 className={`${baseClassNames} text-2xl leading-snug ${p.className}`}>{p.children}</h4>,
         h5: (p: TextProps) => <h5 className={`${baseClassNames} text-xl leading-snug ${p.className}`}>{p.children}</h5>,
         h6: (p: TextProps) => <h6 className={`${baseClassNames} text-lg leading-relaxed ${p.className}`}>{p.children}</h6>,
-        lead: (p: TextProps) => <p className={`${baseClassNames} text-base font-normal leading-relaxed ${p.className}`}>{p.children}</p>,
-        paragraph: (p: TextProps) => <p className={`${baseClassNames} text-sm font-normal leading-relaxed ${p.className}`}>{p.children}</p>,
+        lead: (p: TextProps) => <p className={`${baseClassNames} text-base leading-relaxed ${p.className}`}>{p.children}</p>,
+        paragraph: (p: TextProps) => <p className={`${baseClassNames} text-sm leading-relaxed ${p.className}`}>{p.children}</p>,
     }
     return typographies[variant]({
         className,

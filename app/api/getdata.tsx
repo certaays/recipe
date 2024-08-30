@@ -22,7 +22,14 @@ export async function getCategories(){
 export async function getDetailCategories({category}: {category: string}){
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
     let data = await response.json()
-    console.log(data.meals)
+    // console.log(data.meals)
+    return data.meals
+}
+
+export async function getDetailArea({area}: {area: string}){
+    let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`)
+    let data = await response.json()
+    // console.log(data.meals)
     return data.meals
 }
 
